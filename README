@@ -1,0 +1,55 @@
+Caleb Freeman
+CS4760 - Operating Systems
+Instructor: Dr. Hauschild
+Assignment #2 - UNIX SYSTEM CALLS AND LIBRARY FUNCTIONS
+
+1-CONTENTS
+----------
+logParse.c      - source code
+.git/           - git Repository***(I am unsure on how i should handle this? should it be submitted?)
+Makefile        - makefile
+README          - this file
+
+2-WORKS CITED
+----------
+
+https://stackoverflow.com/questions/46437241/how-do-i-read-the-contents-of-a-file-in-c-and-store-it-into-an-array-using-fgets
+
+https://stackoverflow.com/questions/2195823/reading-unknown-number-of-integers-from-stdin-c
+
+https://stackoverflow.com/questions/35722491/parent-process-waits-for-all-child-processes-to-finish-before-continuing?rq=1
+
+https://algorithmsandme.com/find-subset-with-given-sum-subset-sum-problem/
+
+
+3-COMMAND LINE ARGUMENTS
+----------
+Usage: ./logParse [-h] [-i] [dirname ][-o] [dirname]
+-h,   --help                    Print a help message and exit
+-i,   --input file              Include input file name
+-o,   --ouput file              Include output file name
+-t n  --timer                   user set timer for program termination using integer n representing seconds
+input file is format is:
+n               were n is a single integer represnting the number of lines that will be processed as children
+x a b c d       each line is then proccsed by forking a child to solve subsetsum problem with x being the sum
+default settings: -i input.dat -o output.dat -t 60
+
+4-CODE COMPILATION:
+---------
+In my computer I am able to run the make file an execute with ./logParse
+example:
+>make
+>./logParse -i [dirname.dat] -o [dirname.dat]
+
+5-DESIGN DECISIONS & ISSUES
+---------
+Design Decisions:
+I required the output file to exist, it handle invalid output files being produced.
+Major Issues:
+
+Minor Issues:
+1) (possibly resolved)too large of inputs while checking for child processes termination, will result in an integer overflow,
+ that tricks the algo into think it has succedded and outputs a garbage result to output.dat file.
+        - currently unable to reproduce the above.
+2) in the output file, my current solution to the subsetsum problem insists on saving a 0 in the first index of the first solution.
+
